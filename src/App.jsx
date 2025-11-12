@@ -1,6 +1,8 @@
 import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Tooth, CalendarDays, ShieldCheck, CreditCard, Sparkles, LineChart, MessageSquare, Wand2, CheckCircle2, Star, ArrowRight } from 'lucide-react'
+import Navbar from './components/Navbar'
+import FAQ from './components/FAQ'
 
 const container = {
   hidden: { opacity: 0 },
@@ -94,34 +96,7 @@ function PricingCard({ name, price, features, highlighted }) {
 export default function App() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-sky-50 via-cyan-50 to-white text-slate-800">
-      {/* Top nav */}
-      <motion.div
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className="fixed inset-x-0 top-0 z-40 border-b border-white/60 bg-white/60 backdrop-blur"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2">
-            <div className="relative">
-              <motion.span
-                className="absolute -inset-2 rounded-full bg-sky-200/60 blur-xl"
-                {...glowPulse}
-              />
-              <Tooth className="relative z-10 w-7 h-7 text-sky-700" />
-            </div>
-            <span className="text-lg font-semibold">SmilesCloud</span>
-          </a>
-          <div className="hidden md:flex items-center gap-8 text-sm">
-            <a href="#features" className="hover:text-slate-900">Features</a>
-            <a href="#pricing" className="hover:text-slate-900">Pricing</a>
-            <a href="#testimonials" className="hover:text-slate-900">Testimonials</a>
-            <a href="#contact" className="hover:text-slate-900">Contact</a>
-            <button className="rounded-full bg-slate-900 text-white px-4 py-2 font-medium hover:bg-slate-800">
-              Get Started
-            </button>
-          </div>
-        </div>
-      </motion.div>
+      <Navbar />
 
       {/* Hero */}
       <section className="relative overflow-hidden pt-28 pb-24">
@@ -345,6 +320,8 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      <FAQ />
 
       {/* CTA */}
       <section id="contact" className="relative py-16">
